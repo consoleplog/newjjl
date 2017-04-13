@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>积分换乐圆</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<style type="text/css">
+      .bgc_jifen{
+      background-image: url(./images/jifen_bgc.png);
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 7.2rem;
+      height: 5.2rem;
+    }
+/*    .gundong_jifen i{
+    	width:0.4rem;height:0.5rem;
+    	display:inline-block;
+    	background: url(./images/number2.png) no-repeat;
+    	background-position:0 0;
+    	text-indent:-999em;	
+    	}*/
+
+	</style>
+</head>
+<body>
+	<div class='bgc_jifen'>
+<!-- 		<p class='text_jl firs_test'>可转换</p>
+		<div class='gundong_jifen'></div>
+		<p class='text_jl sce_test'>乐圆</p>
+		<p class='text_jl th_test'><span>15家&nbsp;&nbsp;&nbsp;&nbsp;共3200积分</span></p> -->
+	</div>
+
+	<a href='#' class='btn zhuanru_btn'>立即转入</a>
+
+
+	<script type="text/javascript" src='./js/fontsize.js'></script>
+	<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src='./js/zepto.min.js v1.2.0'></script>
+	<script type="text/javascript" src='./js/numflex.js'></script>
+<!-- 	<script type="text/javascript" src='./js/animateBackground-plugin.js'></script> -->
+    <script type="text/javascript">
+		    $(function(){
+
+
+				$.ajax({
+					 	url: 'https://www.1zhuowang.com/api/u/vipBanner!scoreExchange',
+	                    method: 'post',
+	                    dataType: 'jsonp',
+	                    // data: {},
+	                    success: function(data){
+	                    	console.log(data);
+
+	                //     	备注：exchange_gold：可转换的乐圆数
+						           // store_count:商家数
+						           // total_integral:积分数
+
+	                    	var obj = data.doc.body;
+	      
+	                    	$('.bgc_jifen').append(
+	                    			"<p class='text_jl firs_test'>可转换</p><div class='gundong_jifen'></div><p class='text_jl sce_test'>乐圆</p><p class='text_jl th_test'><span>"+obj.store_count+"家&nbsp;&nbsp;&nbsp;&nbsp;共"+obj.total_integral+"积分</span></p>"
+	                    		);
+
+	                    	var _num=obj.exchange_gold;
+	                    	var _num=1221112.2;
+	                    	var str=String(_num)
+	                    	
+	                    	if(_num==0){
+	                    		$('.gundong_jifen').append('<span>0</span>')
+	                    		$('.btn').addClass('fx');
+	                    	}else{
+	                    		if(str.indexOf('.')>=0){
+		                    		$('.gundong_jifen').numberAnimate({num:_num, dot:1, speed:2000});
+		                    	}else{
+		                    		$('.gundong_jifen').numberAnimate({num:_num, speed:2000});
+		                    	}
+	                    	
+	                    	}
+	                    	
+
+
+	                    			    //规定特效函数  数字翻滚
+								 		// 	   	function show_num(n){ 
+										//     var it = $(".gundong_jifen i"); 
+										//     var len = String(n).length; 
+										//     for(var i=0;i<len;i++){ 
+										//         if(it.length<=i){ 
+										//             $(".gundong_jifen").append("<i></i>"); 
+										//         } 
+										//         var num=String(n).charAt(i); 
+										//         var y = -parseInt(num)*30; //y轴位置 
+										//         var obj = $(".gundong_jifen i").eq(i); 
+										//         obj.animate({ //滚动动画 
+										//             backgroundPosition :'(0 '+String(y)+'px)'  
+										//             }, 'slow','swing',function(){} 
+										//         ); 
+										//     } 
+										// } 
+
+										// setTimeout(function(){show_num(obj.exchange_gold)},10);
+
+	                    },
+	                    error:function(){
+	                    	console.log('数据获取失败')
+	                    }
+				})
+
+
+				$('.btn').click(function(){
+					var aa=$('.btn').prop('className');
+					console.log(aa);
+					var x = aa.indexOf('fx');
+					console.log(x)
+					if(x<0){
+							$.ajax({
+							url:'https://www.1zhuowang.com/api/u/vipBanner!doExchange',
+							method:'post',
+							dataType:'jsonp',
+							success:function(data){
+									console.log(data)
+									if(data.doc.head.success==true){
+										location.href='./ok.html';
+									}else{
+										location.href='./false.html';
+									}
+									
+									
+							},
+							error:function(){
+								console.log('积分转换失败');
+							}
+						});
+					}else{
+						location.href='./false.html';
+					}
+
+
+
+					
+				});
+
+
+
+		    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>兑换红包</title>
+	<script type="text/javascript" src='./js/fontsize.js'></script>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<style>
+		.hongbao_top{
+			width: 7.2rem;
+			height: 2.25rem;
+			background-image: url(./images/arrow.png);
+			background-repeat: no-repeat;
+      		-webkit-background-size: cover;
+      		background-size: cover;
+		}
+
+		
+		.hb_inner{
+			width: 2.91rem;
+			height: 3.8rem;
+			background-image: url(./images/xiaohb.png);
+			background-repeat: no-repeat;
+      		-webkit-background-size: cover;
+      		background-size: cover;
+      		float:left;
+      		margin: 0.25rem 0.33rem 0.25rem 0.33rem;
+		}
+		 .tanchu_hongbao{
+	      width: 6rem;
+	      height: 8rem;
+	      background-image: url(./images/openhb.png);
+	      background-repeat: no-repeat;
+	      -webkit-background-size: cover;
+	      background-size: cover;
+	      margin-top: 0.6rem;
+	      margin-left: 0.6rem; 
+	      position: absolute; 
+	      top:0;
+	      left:0;
+	      display: none; 
+	      z-index: 101;
+    }
+    	.tanchu_hongbao1{
+	      width: 6rem;
+	      height: 8rem;
+	      background-image: url(./images/openhb.png);
+	      background-repeat: no-repeat;
+	      -webkit-background-size: cover;
+	      background-size: cover;
+	      margin-top: 0.6rem;
+	      margin-left: 0.6rem; 
+	      position: absolute; 
+	      top:0;
+	      left:0;
+	      display: none; 
+	      z-index: 102;
+    }
+	</style>
+</head>
+<body>
+
+<!-- ->弹出层代码 -->
+	<div class='tanchu_hongbao'>
+		<p class='tan_dhtext'>兑换红包</p>
+		<p class='tan_yuan'><span class='tan_num'>10.00</span>元</p>
+		<p class='tan_xiaohao'>即将消耗9乐圆，请返回微信公众号领取</p>
+		<a href='./hongbao.html' id="if_btn_ture" class='if_btn if_btn_ture'>确定兑换</a>
+	</div>	
+
+	<div class='tanchu_hongbao1'>
+		<p class='tan_hb_f_text'><img src="./images/cry.png" alt="" class="img_cry">&nbsp&nbsp红包被抢光了,下次努力哦</p>
+		<a href='./hongbao.html' id="if_btn_false" class='if_btn if_btn_false'>确定</a>
+	</div>	
+
+	<div class='zhezhao'>
+		
+	</div>
+<!-- -->
+	<div class='bh_content'>
+			<div class='hongbao_top'>
+				<p class='my_w hb_same'>32.56</p>
+				<p class='text_hb hb_same'>乐圆</p>
+			</div>
+			<div class='hongbao_main'>
+				<div class="hb_inner">
+					<p class="samehb">
+					<span class='hb_num'>5.18</span>&nbsp元</p>
+					<p class="hb_dh">6乐圆</p>
+					<p class="hb_sy">剩12个</p>
+				</div>
+				<div class="hb_inner"><p class="samehb">
+					<span class='hb_num'>8.88</span>&nbsp元</p>
+					<p class="hb_dh">6乐圆</p>
+					<p class="hb_sy">剩12个</p>
+				</div>
+				<div class="hb_inner"><p class="samehb">
+					<span class='hb_num'>13.14</span>&nbsp元</p>
+					<p class="hb_dh">6乐圆</p>
+					<p class="hb_sy">剩12个</p>
+				</div>
+				<div class="hb_inner"><p class="samehb">
+					<span class='hb_num'>5.18</span>&nbsp元</p>
+					<p class="hb_dh">6乐圆</p>
+					<p class="hb_sy">剩12个</p>
+				</div>
+			</div>
+		</div>
+		
+    <script type="text/javascript" src='./js/zepto.min.js v1.2.0'></script>
+    <script type="text/javascript" src='./js/touch-0.2.14.min.js'></script>
+    <script type="text/javascript" src='./js/fontsize.js'></script>
+    <script type="text/javascript" src='./js/index.js'></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>储值流水</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+
+</head>
+<body>
+	<div class='jifen_yearbox cz2018'></div>
+	<div class='jifen_yearbox cz2017'>
+<!-- 		<p class='year_'>2017</p>
+		<ul>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='addjifen'>+1000<span class="add_word"> 元</span></span></li>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='_jifen'>-100<span class="word_"> 元</span></span></li>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='_jifen'>-100<span class="word_"> 元</span></span></li>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='_jifen'>-1000<span class="word_"> 元</span></span></li>
+		</ul> -->
+	</div>
+	<div class='jifen_yearbox cz2016'>
+		<!-- <p class='year_'>2016</p>
+		<ul>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='addjifen'>+1000<span class="add_word"> 元</span></span></li>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='_jifen'>-100<span class="word_"> 元</span></span></li>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='_jifen'>-100<span class="word_"> 元</span></span></li>
+			<li class="listyle">11月15日&nbsp;&nbsp;&nbsp;&nbsp;12:45:21<span class='_jifen'>-1000<span class="word_"> 元</span></span></li>
+		</ul> -->
+	</div>
+
+	<script type="text/javascript" src='./js/zepto.min.js v1.2.0'></script>
+    <script type="text/javascript" src='./js/fontsize.js'></script>
+	<script type="text/javascript">
+		$(function(){
+    			var id_=window.location.href.split('=')[1];
+    			console.log(id_)
+
+    		$.ajax({
+
+    			url:'http://192.168.1.87:8080/api/WeChat/to!cardSta',
+    			method:'post',
+    			dataType:'jsonp',
+    			data:{compId:id_},
+    			success:function(data){
+    				console.log(data);
+    				var dataList=data.doc.body.cardSta_list.statement;
+    				$.each(dataList,function(i,v){
+    					console.log(v);
+    					// arr.push(v.create_date);
+    					var item = dataList[i];
+    					// console.log(item)
+    					// 获取 时间对象
+    					var date = item.create_date;
+    					//  切割 时间对象
+    					var dateArr = date.split(' ');
+    					// 获取时间对象前半部分 2017-03-02
+    					var date_ = dateArr[0];
+    					// 获取时间对象后半部分 17:13:38
+    					var time_ = dateArr[1];
+    					// 获取年份 对象 数组
+    					var yearArr = date_.split('-');
+    					// 获取年份 2017 2016
+    					 year_ =yearArr[0];
+    					// 获取月份 03 04 10
+    					var month_=yearArr[1];
+    					// 获取日期 1  31 28
+    					var day_ =yearArr[2];
+    					// 获取 增减对象
+    				 	var in_out = item.in_out;
+    				 	// 获取 积分
+    				 	var  gold = item.gold;
+
+    				 	 if(year_=='2018'){
+    						if(in_out=='IN'){
+    							$('.cz2018').append(
+    							'<li class="listyle">'+month_+'月'+day_+'日&nbsp;&nbsp;&nbsp;&nbsp;'+time_+'<span class="addjifen">+'+gold+'<span class="add_word"> 元</span></span></li>'
+    							);
+    						};
+    						if(in_out=='OUT'){
+    							$('.cz2018').append(
+    							'<li class="listyle">'+month_+'月'+day_+'日&nbsp;&nbsp;&nbsp;&nbsp;'+time_+'<span class="_jifen">-'+gold+'<span class="word_"> 元</span></span></li>'
+    							);
+    						}
+    						
+    					};
+
+
+    					if(year_=='2017'){
+    						if(in_out=='IN'){
+    							$('.cz2017').append(
+    							'<li class="listyle">'+month_+'月'+day_+'日&nbsp;&nbsp;&nbsp;&nbsp;'+time_+'<span class="addjifen">+'+gold+'<span class="add_word"> 元</span></span></li>'
+    							);
+    						};
+    						if(in_out=='OUT'){
+    							$('.cz2017').append(
+    							'<li class="listyle">'+month_+'月'+day_+'日&nbsp;&nbsp;&nbsp;&nbsp;'+time_+'<span class="_jifen">-'+gold+'<span class="word_"> 元</span></span></li>'
+    							);
+    						}
+    						
+    					};
+
+     					if(year_=='2016'){
+    						if(in_out=='IN'){
+    							$('.cz2016').append(
+    							'<li class="listyle">'+month_+'月'+day_+'日&nbsp;&nbsp;&nbsp;&nbsp;'+time_+'<span class="addjifen">+'+gold+'<span class="add_word"> 元</span></span></li>'
+    							);
+    						};
+    						if(in_out=='OUT'){
+    							$('.cz2016').append(
+    							'<li class="listyle">'+month_+'月'+day_+'日&nbsp;&nbsp;&nbsp;&nbsp;'+time_+'<span class="_jifen">-'+gold+'<span class="word_"> 元</span></span></li>'
+    							);
+    						}
+    						
+    					};  					
+    					
+
+    					
+
+
+
+
+    				})
+    				if(year_=='2018'){
+    					$('.cz2018').prepend(
+    					'<p class="year_">'+year_+'</p>'
+    					);	
+    				};
+    				if(year_=='2017'){
+    					$('.cz2017').prepend(
+    					'<p class="year_">'+year_+'</p>'
+    					);	
+
+    				};
+    				if(year_=='2016'){
+    					$('.cz2016').prepend(
+    					'<p class="year_">'+year_+'</p>'
+    					);	
+    				}
+
+    				
+
+
+    			},
+
+    			error:function(){
+    				console.log('获取信息失败 1 检查section 机制  2查看访问url 是否正确 是否带 http：等字样 3 可能是跨域问题 解决 jsonp 或者 同源开放')
+
+    			}
+    		})
+
+    			
+    	})
+	</script> 
+</body>
+</html>

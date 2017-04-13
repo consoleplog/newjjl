@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>会员储值</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<div class='hy_jf_top'>
+		<p class='hy_jf_tex'><span class='hy_jf_topNum'>0.00</span>&nbsp;乐圆</p>
+		<p class='hy_jf_topPhoneNum'></p>
+		<a href="#" class='hy_jfly_go'>积分转乐圆 <img src="./images/jflygo.png" alt="pic" class='img_jflygo'></a>
+	</div>
+	<div>
+		<div  id="hy_jf_box" class='hy_jifen1'>
+			<p class='hy_jifen_in'>
+				<img src="./images/money.png" alt="pic" class="img_money">
+				<span class='hy_jf_text hy_jf_text1'>积分</span>
+			</p>
+
+			<div class="hy_cz_list">
+<!-- 				<a href='./chuzhiliushui.html' class='hy_cz_li'>
+						<div class='hy_cz_li_lfet'>
+							<img src="" alt="" class='hy_cz_li_img'>
+						</div>
+						<div class='hy_cz_li_right'>
+								<li class='hy_cz_li_text hy_cz_li_first'>民乐医药</li>
+								<li class='hy_cz_li_text hy_cz_li_sec'><span class='hy_cz_li_num'>打折优惠 尊享95折</span></li>
+								<li class='hy_cz_li_text hy_cz_li_te'>余额 2035.68 元</li>
+						</div>
+				</a> -->
+
+			</div>	
+		</div>
+
+		<div id="hy_cz_box" class='hy_chuzhi hy_chuzhi1'>
+			<p class='hy_chuzhi_in'>
+				<img src="./images/card_.png" alt="pic" class="img_card">
+				<span class='hy_cz_text hy_cz_text1'>储值</span>
+			</p>
+		</div>
+	</div>
+
+
+
+	
+	<script type="text/javascript" src='./js/zepto.min.js v1.2.0'></script>
+  <script type="text/javascript" src='./js/touch-0.2.14.min.js'></script>
+  <script type="text/javascript" src='./js/fontsize.js'></script>
+  <script type="text/javascript">
+		$(document).ready(function(){
+
+			$('#hy_jf_box').click(function(){
+				location.href='./huiyuanjf.html'
+			})
+
+
+            //shujv
+
+            //yonghu user info
+                $.ajax({
+                    url: 'http://192.168.1.87:8080/api/WeChat/to!cardList',
+                    method: 'post',
+                    dataType: 'jsonp',
+                    // data: {pageIndex:'2',imit:''},
+                    success: function(data){
+                    console.log(data);
+                  	
+                    //设置用户积分 页面 id
+                     $('.hy_jf_topPhoneNum').text(data.doc.body.user_mobile);
+                     $('.hy_jf_topNum').text(data.doc.body.user_gold);
+                      // build use_goodsList
+                      $('.hy_jf_list').empty();
+                      var list_=data.doc.body.company_list
+                    
+                      $.each(list_,function(index,value){
+                          
+                      $(".hy_cz_list").empty();
+           						$(".hy_cz_list").append(
+
+                              "<a href='./chuzhiliushui.html?index="+value.company_id+"' class='hy_cz_li'><div class='hy_cz_li_lfet'><img src='"+value.company_logo+"' alt='pic' class='hy_cz_li_img'></div><div class='hy_cz_li_right'><li class='hy_cz_li_text hy_cz_li_first'>"+value.company_name+"</li><li class='hy_cz_li_text hy_cz_li_sec'><span class='hy_cz_li_num'>"+value.card_title+"</span></li><li class='hy_cz_li_text hy_cz_li_te'>余额 "+value.user_balance+" 元</li></div></a>"                          
+
+           							)
+                      			
+
+                      })
+                      
+
+
+
+
+
+
+
+
+                    },
+                    error:function(){
+                        
+                     console.log('数据获取失败')
+                    }
+                })
+
+
+
+
+
+		});   
+	 </script>
+
+</body>
+</html>

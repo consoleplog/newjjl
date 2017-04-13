@@ -1,0 +1,475 @@
+  @charset 'utf-8'; 
+  *{margin:0;padding:0;box-sizing: border-box;}
+
+    a{text-decoration: none;}
+    body,input{font-family:'Microsoft YaHei';font-size: 0.14rem;}
+    li{list-style: none;}
+
+    /*兼容微信内核 按钮样式*/
+    input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; } 
+
+/*  ---------
+  登录*/
+    #phonebox{
+      position: relative;
+      margin-left:0.3rem;
+      margin-right:0.3rem;
+      margin-top: 1.05rem;
+      border-bottom: 1px solid #ccc;
+        }
+
+     #phoneNum{
+         border:none;
+         margin-left:0.13rem;
+         font-size: 0.36rem;
+         margin-bottom: 0.3rem;
+         float-right;
+        
+        }
+         
+    .img_phone{
+      margin-left: 0.6rem;
+      width: 0.32rem;
+      height: 0.45rem;
+      vertical-align: text-bottom;
+
+    }
+    #huoqu_btn{
+      position: absolute;
+      top:-0.1rem;
+      right:0;
+      width: 1.2rem;
+      height: 0.7rem;
+      background-color: #f44236;
+      color:#fff;
+      border-radius: 0.06rem;
+      border:none;
+      text-align: center;
+      font-size: 0.26rem;
+    }
+    .visibility_hidden{
+      visibility:hidden;
+    }
+    .visibility_visible{
+      visibility:visible;
+    }
+    #tishi{
+      text-indent:55px;
+      color:red;
+      font-size: 0.22rem;
+      visibility:hidden;
+    }
+    #codebox{
+      margin-left:0.3rem;
+      margin-right:0.3rem;
+      margin-top: 0.3rem;
+      border-bottom: 1px solid #ccc;
+        }
+     .img_code{
+      margin-left: 0.56rem;
+      width: 0.4rem;
+      height: 0.32rem;  
+     }
+    #yzcode{
+     border:none;
+     margin-left:0.13rem;
+    font-size: 0.36rem;
+    margin-bottom: 2.3vh;
+    float-right;
+    }
+
+    .btn{
+    display: block;
+    text-align: center;
+    line-height: 0.9rem;
+    width:6.6rem;
+    height: 0.9rem;
+    color:#fff;
+    background-color: #f44236;
+    font-size: 0.36rem;
+    border:none;
+    margin-top: 10.9vh;
+    margin-left:4vw;
+    border-radius: 0.06rem;
+    }
+
+  body{
+    background-color: #f2f6f7;
+  }
+  input[type="text"]{
+    background-color: #f2f6f7;
+  }
+  .logofoot{
+    width: 2.18rem;
+    height: 1.64rem;
+    margin-top: 3.8rem;
+    margin-left:2.5rem;
+  }
+  .yz_tishi{
+    position: absolute;
+    top:4.3rem;left:2.3rem;
+    display: inline-block;
+    width:2.4rem;
+    height: 1.6rem;
+    color:#fff;
+    text-align: center;
+    line-height: 1.6rem;
+    border-radius: 0.06rem;
+    background-color: rgba(28,28,28,0.8);
+  }
+  /*------------------*/
+/*  积分流水储值*/
+  .year_{
+      font-size: 0.36rem;
+      color:red;
+    }
+    .jifen_yearbox{
+       margin:0 0.1rem 0 0.1rem;
+       margin-top: 0.2rem;
+    }
+    .listyle{
+      width: 7rem;
+      height: 1.1rem;
+      border :1px solid #ccc;
+      border-radius: 0.06rem;
+      font-size: 0.3rem;
+      margin-top: 0.2rem;
+      background-color: #fff;
+      line-height: 1.1rem;
+      text-indent: 0.2rem;
+      color:#999999;
+    }
+    .addjifen{
+      color:red;
+    }
+    .addjifen,._jifen{
+      
+      font-size: 0.4rem;
+      float:right;
+
+    }
+    .add_word,.word_{
+      font-size: 0.24rem;
+      margin-right: 0.2rem;
+    }
+    ._jifen{
+      color:black;
+    }
+   /* ------*/
+   /*   积分换乐圆*/
+
+    .zhuanru_btn{
+      margin-top: 1.9rem;
+    }
+    .text_jl{
+      font-size: 0.3rem;
+      color:#fff;
+      text-align: center;
+    }
+    .gundong_jifen{
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color:#fff;
+      text-align: center;
+
+    }
+    .firs_test{
+      padding-top:0.8rem;
+    }
+    .sce_test{
+      padding-top: 0.4px;
+    }
+    .th_test{
+      padding:0.8rem 0 0.4rem 0;
+    }
+/* -----兑换成功*/
+    
+      .go_denglu{
+          margin-top: 1rem;
+      }
+/*-----兑换失败*/
+  
+      .res_jifen{
+        font-size: 0.26rem;
+        color:#fff;
+        padding-top: 3rem;
+        text-align: center;
+      }
+/*-------红包*/
+    .hb_same{
+      color:#fae3b1;
+      text-align: center;
+    }
+    .my_w{
+      font-size: 0.72rem;
+      padding-top: 0.2rem;
+    }
+    .text_hb{
+      font-size: 0.3rem;
+
+    }
+      .samehb,.hb_num,.hb_dh,.hb_sy{
+      color:#fae3b1;
+      text-align: center;
+      font-size: 0.22rem;
+    }
+    .hb_num{
+      font-size: 0.48rem;
+
+    }
+    .samehb{
+      font-size: 0.24rem;
+      padding-top: 2rem;
+    }
+    .hb_sy{
+      padding-top:0.35rem;
+    }
+/*红包弹出页面*/
+    .tan_dhtext,.tan_yuan,.tan_xiaohao{
+      text-align: center;
+    }
+    .tan_dhtext{
+      color:#fff;
+      font-size: 0.36rem;
+      margin-top: 3.3rem;
+    }
+    .tan_num,.tan_yuan,.tan_xiaohao{
+      color:#fae3b1;
+    }
+    .tan_num{
+      font-size: 0.72rem; 
+    }
+    .tan_yuan{
+      font-size: 0.3rem;
+      margin-top: 0.5rem;
+    }
+    .tan_xiaohao{
+      font-size: 0.26rem;
+      margin-top: 0.5rem;
+    }
+    .if_btn{
+      display:block;
+      line-height: 0.8rem;
+      font-size: 0.36rem;
+      color:#fff;
+      text-align: center;
+      background-color: #ed725c;
+      border:none;
+      width: 2.6rem;
+      height: 0.8rem;
+      border-radius: 0.06rem;
+      margin-left: 1.7rem;
+      
+    }
+    .if_btn_ture{
+      margin-top: 0.5rem;
+      
+    }
+
+    .tan_hb_f_text{
+    font-size: 0.36rem;
+    margin-top: 3.8rem;
+    color:#fff;
+  }
+  .if_btn_false{
+    margin-top: 2rem;
+  }
+
+    /*遮罩部分*/
+    .zhezhao{
+      position:absolute; 
+      left:0; 
+      top:0; 
+      width: 7.2rem;
+      height: 12.8rem;
+      background-color: #ccc; 
+      opacity: 0.6;
+      z-index: 100;
+      display: none; 
+    }
+      .tan_hb_f_text{
+      text-indent: 1rem;
+      position: relative;
+    }
+     .img_cry{
+      width: 0.46rem;
+      height: 0.4rem;
+      position: absolute;
+      top:0.03rem;
+      left: 0.5rem;
+    }
+
+    /**/
+    .hy_jf_top{
+      height: 1.76rem;
+      position: relative;
+    }
+    .hy_jf_tex{
+      padding-top: 0.3rem;
+    }
+    .hy_jf_tex ,.hy_jf_topPhoneNum,.hy_jfly_go{
+      
+      font-size: 0.26rem;
+    }
+    .hy_jf_tex,.hy_jf_topPhoneNum{
+      text-indent: 0.3rem;
+    }
+    .hy_jf_topNum{
+      font-size:0.6rem;
+    }
+    .hy_jf_topPhoneNum{
+      color:#ccc;
+    }
+    .hy_jfly_go{
+      position: absolute;
+      right:0.2rem;
+      top:0.7rem;
+      color:#f44236;
+      
+    }
+    .img_jflygo{
+      width: 0.26rem;
+      height: 0.26rem;
+
+      /*vertical-align: text-top;*/       
+    }
+    .hy_jifen{
+      width: 3.6rem;
+      height: 0.9rem;
+      float: left;
+      background-color: #f44236;
+    }
+   .hy_chuzhi{
+      width: 3.6rem;
+      height: 0.9rem;
+      border:1px solid #999999;
+      border-left: none;
+      float: left;
+    }
+
+
+    .hy_jifen_in,.hy_chuzhi_in{
+
+      text-align: center;
+      line-height: 0.9rem;
+
+    }
+    .hy_jifen_in{
+      border:none;
+    }
+    .img_money,.img_card{
+
+      width: 0.43rem;
+      height: 0.43rem;
+      vertical-align: text-bottom;
+
+    }
+
+    .hy_jf_text,.hy_cz_text{
+      display: inline-block;
+      text-indent: 0.3rem;
+      font-size: 0.3rem;
+    }
+    .hy_jf_text{
+      color:#fff;
+    }
+    .hy_cz_text{
+      color:#999999;
+    }
+    
+    .hy_jf_text1{
+      color:#999999;
+    }
+
+    .hy_chuzhi1{
+      border:none;
+      background-color: #f44236
+    }
+    .hy_cz_text1{
+      color:#fff;
+    }
+    .hy_jifen1{
+      width: 3.6rem;
+      height: 0.9rem;
+      float: left;
+     background-color: #f2f6f7;
+     border:1px solid #999999;
+     border-right: none;
+    }
+ 
+
+    
+    /*hui yuan list*/
+
+
+    .hy_jf_li,.hy_cz_li{
+      display: block;      
+      width: 7rem;
+      height: 2.6rem;
+      border:1px solid #999999;
+      border-radius: 0.06rem;
+      margin:0.3rem 0.08rem 0 0.08rem;
+    }
+
+    .hy_jf_li_img,.hy_cz_li_img{
+      width: 1.98rem;
+      height: 1.98rem;
+      border:2px solid #ccc;
+      border-radius: 0.06rem;
+      float:left;
+      margin:0.2rem 0.1rem 0.3rem 0.3rem;
+    }
+    
+    .hy_jf_li_right,.hy_cz_li_right{
+      float:left;
+      width: 4.36rem;
+      height: 2.61rem;
+    }
+    .hy_jf_li_text,.hy_cz_li_text{
+      font-size: 0.26rem;
+      text-indent: 0.23rem;
+      color:#000;
+    }
+    .hy_jf_li_first,.hy_cz_li_first{
+      padding-top: 0.23rem;
+    }
+    .hy_jf_li_num{
+      font-size: 0.72rem;
+    }
+    .hy_cz_li_num{
+      font-size: 0.4rem;
+    }
+    .hy_jf_li_te,.hy_cz_li_te{
+      text-align:right;
+      line-height: 0.74rem;
+      width: 100%;
+      border-top:2px dashed #ccc;
+      color:#999999;
+    }
+    .hy_cz_li_sec{
+      padding-top: 0.4rem;
+      padding-bottom: 0.2rem;
+
+    }
+    .hy_jf_li_tt{
+      padding-bottom: 0.2rem;
+    }
+
+  /*数字滚动插件的CSS可调整样式*/
+  .mt-number-animate{ font-family: '微软雅黑'; line-height:70px; height: 70px;/*设置数字显示高度*/; font-size: 60px;/*设置数字大小*/ overflow: hidden; display: inline-block; position: relative; }
+  .mt-number-animate .mt-number-animate-dot{ width: 15px;/*设置分割符宽度*/ line-height: 80px; float: left; text-align: center;}
+  .mt-number-animate .mt-number-animate-dom{ width: 32px;/*设置单个数字宽度*/ text-align: center; float: left; position: relative; top: 0;}
+  .mt-number-animate .mt-number-animate-dom .mt-number-animate-span{ width: 100%; float: left;}
+
+
+
+
+
+
+
+
+
+
+
+
+    
